@@ -1,0 +1,13 @@
+#!/usr/bin/make -f
+
+%:
+	dh $@
+
+override_dh_auto_build-indep:
+	$(MAKE) -C doc libraw1394.pdf libraw1394
+
+override_dh_clean:
+	rm -rf doc/libraw1394
+	dh_clean
+
+.PHONY: override_dh_auto_build-indep override_dh_clean
